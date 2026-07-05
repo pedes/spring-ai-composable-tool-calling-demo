@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: spring-ai-composable-tool-calling-demo
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:}
+      chat:
+        options:
+          model: ${OPENAI_CHAT_MODEL:gpt-5-mini}
+          temperature: 0.2
+    chat:
+      client:
+        tool-search-advisor:
+          enabled: ${TOOL_SEARCH_ENABLED:true}
+          tool-index-type: ${TOOL_SEARCH_INDEX:regex}
+
+server:
+  port: ${PORT:8080}
+
+logging:
+  level:
+    org.springframework.ai: INFO
